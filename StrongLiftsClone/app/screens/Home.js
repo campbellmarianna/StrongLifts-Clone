@@ -25,7 +25,7 @@ export default class Home extends React.Component {
   }
 
   fetchDataFromApi = () => {
-    const url = 'https://pyconlunchbeta.azurewebsites.net/api/list.json';
+    const url = 'https://workout-app2.herokuapp.com.json';
 
     this.setState({ loading: true });
 

@@ -17,17 +17,12 @@ export default class DetailScreen extends React.Component {
     const imgUrl = params.img;
     return (
       <View style={styles.dContainer}>
-        <Text style={styles.dTitleText}>{params.name}</Text>
-        <Avatar
-          source={{ uri: imgUrl }}
-          onPress={() => console.log('Works!')}
-          containerStyle={{ marginBottom: 12, marginTop: 20 }}
-          avatarStyle={{ resizeMode: 'cover' }}
-          width={300}
-          height={200}
-        />
-        <Text style={styles.dMenuText}>{params.menu}</Text>
-        <Text style={styles.dMenuText}>{params.address}</Text>
+        <Text style={styles.dTitleText}>
+          Workout
+          {params.id}
+        </Text>
+        <Text style={styles.dWeightText}>{params.exercise_name}</Text>
+        <Text style={styles.dWeightText}>{params.address}</Text>
       </View>
       //   <MapView
       //    style={{ flex: 1 }}
@@ -71,7 +66,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     color: 'grey',
   },
-  dMenuText: {
+  dWeightText: {
     fontSize: 16,
     paddingLeft: 10,
     color: 'grey',
