@@ -18,7 +18,6 @@ export default class DetailScreen extends React.Component {
     return (
       <View style={styles.dContainer}>
         <Text style={styles.dTitleText}>
-          Workout
           {params.id}
         </Text>
         <Text style={styles.dWeightText}>{params.exercise_name}</Text>
