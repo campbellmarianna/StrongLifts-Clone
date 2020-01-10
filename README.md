@@ -11,3 +11,6 @@ I accomplished my primary goal by creating a basic React Native app, fetching da
 
 ## Progress #2
 Since I accomplished my primary objectives I decided to engage more into the workout app concept.
+
+### Credit
+Progess #1 - Based on [`hassanabidpk/pyconkr2017`](https://github.com/hassanabidpk/pyconkr2017) on GitHub.
