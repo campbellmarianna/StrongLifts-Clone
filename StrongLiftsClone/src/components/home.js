@@ -1,51 +1,23 @@
 import React from 'react';
 import {
-  StyleSheet, Text, FlatList, ActivityIndicator, View, Image,
+  StyleSheet, Text, FlatList, View,
 } from 'react-native';
-import {
-  List, ListItem, SearchBar, Avatar,
-} from 'react-native-elements';
-import { StackNavigator } from 'react-navigation';
-
-// export default class HomeScreen extends React.Component {
-//     render
-// }
+import { ListItem, SearchBar } from 'react-native-elements';
 
 export default class HomeScreen extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    data: [],
+  };
 
-    this.state = {
-      loading: false,
-      data: [],
-      error: null,
-      refreshing: false,
-      base_url: 'https://workout-clone-mc.herokuapp.com/',
-    };
+  componentWillMount() {
+    this.fetchData();
   }
 
-  componentDidMount() {
-    this.fetchDataFromApi();
-  }
-
-  fetchDataFromApi = () => {
-    const url = 'https://workout-clone-mc.herokuapp.com/api/rep.json';
-
-    this.setState({ loading: true });
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          data: res,
-          error: null,
-          loading: false,
-          refreshing: false,
-        });
-      })
-      .catch((error) => {
-        this.setState({ error, loading: false });
-      });
+  fetchData = async () => {
+    // fetch will give us a response back similar to the browser
+    const response = await fetch('https://workout-clone-mc.herokuapp.com/api/rep');
+    const json = await response.json();
+    this.setState({ data: json.results });
   };
 
   handleRefresh = () => {
@@ -54,7 +26,7 @@ export default class HomeScreen extends React.Component {
         refreshing: true,
       },
       () => {
-        this.fetchDataFromApi();
+        this.fetchData();
       },
     );
   };
@@ -70,19 +42,6 @@ export default class HomeScreen extends React.Component {
       }}
     />
   );
-
-  //     keyExtractor = (item, index) => index.toString()
-
-  //     renderItem = ({ item }) => (
-  //         here
-  //         <ListItem
-  //             title={item.name}
-  //             subtitle={item.subtitle}
-  //             leftAvatar={{ source: { uri: item.avatar_url } }}
-  //             bottomDivider
-  //             chevron
-  //         />
-  // )
 
   renderHeader = () => <SearchBar placeholder="Type Here..." lightTheme round />;
 
