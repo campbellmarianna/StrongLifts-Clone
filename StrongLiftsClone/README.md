@@ -1,1 +1,0 @@
-# StrongLifts-Clone Frontend
