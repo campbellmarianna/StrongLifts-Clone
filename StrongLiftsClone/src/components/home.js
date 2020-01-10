@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  StyleSheet, Text, FlatList, ActivityIndicator, View, Image,
-} from 'react-native';
-import {
-  List, ListItem, SearchBar, Avatar,
-} from 'react-native-elements';
-import { StackNavigator } from 'react-navigation';
-
-// export default class HomeScreen extends React.Component {
-//     render
-// }
+import { StyleSheet, Text, FlatList, View } from 'react-native';
+import { ListItem, SearchBar } from 'react-native-elements';
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
